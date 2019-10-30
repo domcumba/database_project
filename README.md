@@ -1,3 +1,3 @@
-# DATABASE Management
+# DATABASE Management Class
 ## Project
 ### DM
