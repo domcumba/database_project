@@ -25,28 +25,28 @@ echo "Connected Successfully";
             // Valid file extensions
             $extensions_arr = array("mp4","avi","3gp","mov","mpeg");
             
-            if(in_array($videoFileType, $extensions_arr))
-            {
-		if(($_FILES['file']['size'] >= $maxsize) || ($_FILES["file"]["size"] == 0))
-		{
-			echo "File too large. File must be less than 5MB.";
-                }
-                else
-                {
-          		if(move_uploaded_file($_FILES['file']['tmp_name'],$target_file))
+        if(in_array($videoFileType, $extensions_arr))
+        {
+			if(($_FILES['file']['size'] >= $maxsize) || ($_FILES["file"]["size"] == 0))
 			{
-				$query = "INSERT INTO Videos(Filename,Fileloc,FileDescript) VALUES('".$name."','".$target_file."','".$description."')";
+				echo "File too large. File must be less than 5MB.";
+			}
+			else
+			{
+				if(move_uploaded_file($_FILES['file']['tmp_name'],$target_file))
+				{
+					$query = "INSERT INTO Videos(Filename,Fileloc,FileDescript) VALUES('".$name."','".$target_file."','".$description."')";
 
-              			mysqli_query($conn,$query);
-              			echo "Upload successfully.";
-                        }
-                }
-            } 
-            else
+					mysqli_query($conn,$query);
+					echo "Upload successfully.";
+				}
+			}
+        } 
+			else
             {
              echo "Invalid Extension";
             }
-        }
+		}
         ?>
    </head>
    <body>
