@@ -1,14 +1,35 @@
 <?php
+	require "header.php";
+?>
+
+	<main>
+		<?php
+			if (isset($_SESSION['username'])){
+				echo '<p> You are logged in </p>';
+			}
+			else {
+				echo '<p> You are logged out </p>';
+			}
+		?>
+	</main>
+
+<?php
+	require "footer.php";
+?>
+
+
+
+
+<?php
 include 'db_connection.php';
 
 $conn = OpenCon();
-
-echo "Connected Successfully";
 ?>
 
-<!doctype html>
-<html>
-    <?php
+<!DOCTYPE html>
+
+<body>
+<?php
 		$query = "SELECT * FROM videos";
 		$result = mysqli_query($conn, $query);
 		
@@ -20,7 +41,4 @@ echo "Connected Successfully";
 		}
 		echo "</table>";
 	?>
-</html>
-            			
-        
-
+</body>
