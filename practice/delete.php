@@ -2,6 +2,7 @@
 include 'db_connection.php';
 $conn = OpenCon();
 echo "Connected Successfully";
+require "header.php";
 ?>
 
 <!doctype html>
@@ -22,3 +23,6 @@ echo "Connected Successfully";
 		</form>
 	</body>
 </html>
+<?php
+	require "footer.php";
+?>
