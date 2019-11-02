@@ -20,9 +20,9 @@
 				<a href="submit.php"> Home </a>
 				<a href="upload.php"> Upload </a><
 				<a href="display.php"> Display </a>
-				<a href="delete.php"> Advanced Search </a>
+				<a href="#"> Advanced Search </a>
 				<a href="#"> Update </a>
-				<a href="#"> Delete </a>
+				<a href="delete.php"> Delete </a>
 				<?php
 					if (isset($_SESSION['username'])){
 					echo '<form action="logoutphp.php" method="post">
