@@ -13,11 +13,6 @@
 		?>
 	</main>
 
-
-
-
-
-
 <?php
 include 'db_connection.php';
 
@@ -25,7 +20,7 @@ $conn = OpenCon();
 ?>
 
 <!DOCTYPE html>
-
+<div id="container">
 <body>
 <?php
 		$query = "SELECT * FROM videos";
@@ -41,3 +36,7 @@ $conn = OpenCon();
 	?>
 </body>
 
+</div>
+<?php
+	require "displayFooter.php";
+?>
