@@ -13,9 +13,7 @@
 		?>
 	</main>
 
-<?php
-	require "footer.php";
-?>
+
 
 
 
@@ -42,3 +40,4 @@ $conn = OpenCon();
 		echo "</table>";
 	?>
 </body>
+
