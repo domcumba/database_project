@@ -30,9 +30,17 @@ $conn = OpenCon();
 		
 		while($row = mysqli_fetch_array($result))
 		{
-			echo "<tr><td><video width ='320' height ='200' controls='controls'><source src='videos/".$row['Filename']."'> Your browser does not support the video element</audio></td><td>".$row['Filename']."</td><td>".$row['FileDescript']."</td><td>".$row['ID']."</td></tr>";
+			echo "<tr><td><video width ='320' height ='200' controls='controls'><source src='videos/".$row['Filename']."'> Your browser does not support the video element</audio></td><td>".$row['Filename']."</td><td>".$row['FileDescript']."</td><td>".$row['ID']."</td><td><a href='display.php?ID=".$row['ID']."'>Flag Video</a></td></tr>";
 		}
 		echo "</table>";
+		
+		if(isset($_GET["ID"]))
+		{
+			$id = (int)$_GET['ID'];
+			$query = "INSERT INTO flagged(ID) VALUES({$id})";
+            mysqli_query($conn,$query);
+		}
+		
 	?>
 </body>
 </div>
