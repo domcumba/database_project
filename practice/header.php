@@ -31,13 +31,13 @@
 					}
 					else {
 						echo '<a href="signup.php"> Signup </a>
-								<form action="loginphp.php" method="post">
+								<form action="loginphp.php" method="post" align="right">
 								<input type="text" name="userEmail" placeholder="Username...">
 								<input type="password" name="password" placeholder="Password...">
 								<button type="submit" name="loginSubmit"> Login </button>
 								</form>';
 					}
-				?>			
+				?>	
 			</ul>
 			<div>
 				

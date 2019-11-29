@@ -11,19 +11,16 @@ require "header.php";
 
 
 	<?php
-	/* I thought this section would work, but even logged in with a username admin it doesn't let me access it//
-	if (isset($_SESSION['loggedin']) && $_SESSION['username'] == "admin") 
+	if (isset($_SESSION['username']) && $_SESSION['username'] == "admin")
 	{
-		echo "Welcome to the member's area, " . $_SESSION['username'] . "!";
+		echo '<p> Welcome to the members area </p';
 	} 
 	else 
 	{
-		header("Location: http://localhost/database_project/practice/submit.php"); 
-		exit();
-	}
-	*/ 
+		/*header("Location: http://localhost/database_project/practice/submit.php"); 
+		exit();*/
+	} 
 	
-
 	if(isset($_POST['delete']))
 	{
 		$target_id = $_POST['ID'];
@@ -50,5 +47,5 @@ require "header.php";
 	</body>
 </html>
 <?php
-	#require "footer.php";
+	require "footer.php";
 ?>

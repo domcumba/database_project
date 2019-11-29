@@ -4,10 +4,10 @@
 	<main>
 		<?php
 			if (isset($_SESSION['username'])){
-				echo '<p> You are logged in </p>';
+				echo '';
 			}
 			else {
-				echo '<p> You are logged out </p>';
+				echo '';
 			}
 		?>
 	</main>
