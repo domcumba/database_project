@@ -43,6 +43,7 @@ $conn = OpenCon();
 		
 	?>
 </body>
+
 </div>
 <?php
 	require "displayFooter.php";
