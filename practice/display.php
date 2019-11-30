@@ -1,28 +1,12 @@
 <?php
 	require "header.php";
+    include 'db_connection.php';
+
+    $conn = OpenCon();
 ?>
 
-	<main>
-		<?php
-			if (isset($_SESSION['username'])){
-				echo '<p> You are logged in </p>';
-			}
-			else {
-				echo '<p> You are logged out </p>';
-			}
-		?>
-	</main>
-
-<?php
-include 'db_connection.php';
-
-$conn = OpenCon();
-?>
-
-<!DOCTYPE html>
 <div id="container">
-<body>
-<?php
+    <?php
 		$query = "SELECT * FROM videos";
 		$result = mysqli_query($conn, $query);
 		
@@ -40,10 +24,7 @@ $conn = OpenCon();
 			$query = "INSERT INTO flagged(ID) VALUES({$id})";
             mysqli_query($conn,$query);
 		}
-		
 	?>
-</body>
-
 </div>
 <?php
 	require "displayFooter.php";

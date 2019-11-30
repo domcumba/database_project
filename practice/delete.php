@@ -7,9 +7,6 @@ require "header.php";
 
 <!doctype html>
 <html>
-
-
-
 	<?php
 	if (isset($_SESSION['username']) && $_SESSION['username'] == "admin")
 	{
@@ -49,3 +46,4 @@ require "header.php";
 <?php
 	require "footer.php";
 ?>
+
