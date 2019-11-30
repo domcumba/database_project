@@ -10,3 +10,5 @@ CREATE TABLE users (
   user_email varchar(50) NOT NULL,
   user_password varchar(50) NOT NULL
 );
+
+The magnifying glass for the search button doesn't work at the moment - I couldn't figure it out. If you type and press enter it should work.
