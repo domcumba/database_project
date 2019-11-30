@@ -64,7 +64,5 @@
 	else {
 		header("Location: submit.php");
 	
-    }
-
-	
+    }	
 ?>

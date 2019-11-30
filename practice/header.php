@@ -9,6 +9,7 @@
 		<meta name=viewport content="width=device-width, initial-scale=1">
 		<title></title>
 		<link rel="stylesheet" href="style.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	</head>
 
 <body>
@@ -19,8 +20,7 @@
 			<ul class="topnav">
 				<a href="submit.php"> Home </a>
 				<a href="upload.php"> Upload </a><
-				<a href="display.php"> Display </a>
-				<a href="search.php"> Advanced Search </a>
+				<a href="search.php"> Search </a>
 				<a href="update.php"> Update </a>
 				<a href="delete.php"> Delete </a>
 				<?php
