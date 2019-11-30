@@ -32,6 +32,21 @@
 
                 echo "<a class='video-title'>".$row['FileDescript']."</a>";
                 echo "<p class='video-atts'>Views: ".$row['views']."</p>";
+
+
+                if (isset($_SESSION['username']))
+	            {
+                    echo "
+                        <form action='flag.php' method='post'>
+                        <button type='submit' name='flag'> Flag </button>
+                        <input type='hidden' name='video-id' value = '".$row['ID']."'/>";
+                    if(isset($_GET["ID"]))
+		            {
+			            $id = (int)$_GET['ID'];
+			            $query = "INSERT INTO flagged(ID) VALUES({$id})";
+                        mysqli_query($conn,$query);
+		            }
+	            } 
             }
 	    } 
     }
