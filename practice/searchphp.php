@@ -66,6 +66,11 @@
                                                     <a class='video-atts'>".$row['Filename']."</a>
                                                 </td>
                                              </tr>
+                                             <tr>
+                                                <td>
+                                                    <a class='video-atts'> Views: ".$row['views']."</a>
+                                                </td>
+                                             </tr>
                                             <tr>
                                                 <td>
                                                     <a class='video-atts'> Video ID: ".$row['ID']."</a>
