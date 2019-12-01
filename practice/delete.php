@@ -1,7 +1,6 @@
 <?php
 include 'db_connection.php';
 $conn = OpenCon();
-echo "Connected Successfully";
 require "header.php";
 ?>
 
@@ -14,8 +13,8 @@ require "header.php";
 	} 
 	else 
 	{
-		/*header("Location: http://localhost/database_project/practice/submit.php"); 
-		exit();*/
+		header("Location: submit.php"); 
+		exit();
 	} 
 	
 	if(isset($_POST['delete']))
