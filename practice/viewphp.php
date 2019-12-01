@@ -11,7 +11,6 @@
         </div>
     </form>
 
-
 <div class="view-body">
     <?php
         if(isset($_POST['searchBox']) || isset($_POST['searchSubmitBtn'])){
