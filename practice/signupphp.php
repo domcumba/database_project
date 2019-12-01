@@ -38,6 +38,7 @@
 
 		/* check using prepared statements for security*/
 		else {
+			mysqli_begin_transaction($conn, MYSQLI_TRANS_START_READ_WRITE);
 			$sql = "SELECT username FROM users WHERE username=?";
 
 			$statement = mysqli_stmt_init($conn);
@@ -81,6 +82,7 @@
 				}
 			}
 		}
+			mysqli_commit($conn);
 			mysqli_stmt_close($statement);
 			mysqli_close($conn);
 	}
