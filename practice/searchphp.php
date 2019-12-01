@@ -13,6 +13,7 @@
 
 <div class="view-body">
     <?php
+
         if(isset($_POST['searchBox']) || isset($_POST['searchSubmitBtn'])){
 
             include 'db_connection.php';
@@ -20,7 +21,66 @@
 	        $conn = OpenCon();
             $search = $_POST['searchBox'];
 
-            if (empty($search)){
+            if (strpos($search, ':views') !== false){
+                $subSearch = substr($search, 0, -6);
+                
+                $query = "SELECT * FROM videos WHERE Filename LIKE '%".$subSearch."%' ORDER BY views DESC";
+				$result = mysqli_query($conn, $query);
+				$numberOfVideos = mysqli_num_rows($result);
+
+                if ($numberOfVideos > 0) {
+                    echo "<table class='video-table'>";
+				
+				    while($row = mysqli_fetch_array($result))
+				    {
+                        $video_id = $row['ID'];
+					    echo "<tr>
+                                <td width='330'><video width ='320' height ='200' controls='controls'>
+                                <source src='videos/".$row['Filename']."'> Your browser does not support the video element</audio></td>
+                                <td>
+                                    <table>
+                                        <form action='view.php' method='post'>
+                                            <tr>
+                                                <td>
+                                                    <a class='video-title' name='description'>".$row['FileDescript']."</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a class='video-atts'>".$row['Filename']."</a>
+                                                </td>
+                                             </tr>
+                                             <tr>
+                                                <td>
+                                                    <a class='video-atts'> Views: ".$row['views']."</a>
+                                                </td>
+                                             </tr>
+                                            <tr>
+                                                <td>
+                                                    <a class='video-atts'> Video ID: ".$row['ID']."</a>
+                                                    <input type='hidden' name='video-id' value = '".$row['ID']."'/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <button class='video-atts' method='post' type='submit' name='view'> View </button>
+                                                </td>
+                                            </tr>
+                                        </form>
+                                    </table>
+                                </td>
+                             </tr>";
+				    }
+				    echo "</table>";
+                }
+                else {
+                    echo '<div>
+                            <p> There are no results for that search </p>
+                        </div>';
+                }
+            }
+
+            elseif (empty($search)){
                 $query = "SELECT * FROM videos";
 		        $result = mysqli_query($conn, $query);
 		
@@ -99,5 +159,5 @@
     ?>
 </div>
 <?php
-	require "footer.php";
+	require "displayFooter.php";
 ?>
