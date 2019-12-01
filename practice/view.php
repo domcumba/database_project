@@ -12,6 +12,7 @@
 
 	    $conn = OpenCon();
         if(isset($_POST['video-id'])){
+			mysqli_begin_transaction($conn, MYSQLI_TRANS_START_READ_WRITE);
             $video_id = $_POST['video-id'];
             $view_query = "UPDATE videos SET views = views + 1 WHERE ID = '".$video_id."'";
             mysqli_query($conn, $view_query);
@@ -49,6 +50,7 @@
 	            } 
             }
 	    } 
+		mysqli_commit($conn);
     }
     ?>
 </div>

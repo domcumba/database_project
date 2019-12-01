@@ -15,7 +15,9 @@ require "header.php";
 	{
 		header("Location: submit.php"); 
 		exit();
-	} 
+	}
+	
+	mysqli_begin_transaction($conn, MYSQLI_TRANS_START_READ_WRITE);
 	
 	if(isset($_POST['delete']))
 	{
@@ -34,6 +36,7 @@ require "header.php";
 		echo "<tr><td><video width ='320' height ='200' controls='controls'><source src='videos/".$row['Filename']."'> Your browser does not support the video element</audio></td><td>".$row['Filename']."</td><td>".$row['FileDescript']."</td><td>".$row['ID']."</td></tr>";
 	}
 	echo "</table>";
+	mysqli_commit($conn);
 	?>
 	<body>
 		<form method="post" action="">

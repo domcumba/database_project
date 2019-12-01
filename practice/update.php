@@ -35,8 +35,9 @@ require "header.php";
           			if(move_uploaded_file($_FILES['file']['tmp_name'],$target_file))
 					{
 					$query = "UPDATE Videos SET Filename='".$name."', Fileloc='".$target_file."', FileDescript='".$description."' WHERE ID='".$target_id."'";
-
+								mysqli_begin_transaction($conn, MYSQLI_TRANS_START_READ_WRITE);
               					mysqli_query($conn,$query);
+								mysqli_commit($conn);
               					echo "Upload successfully.";
 					}
 				}

@@ -13,7 +13,9 @@
             $video_id = $_POST['video-id'];
             $query = "INSERT INTO flagged(ID) VALUES({$video_id})";
 
-		    mysqli_query($conn, $query);
+		    mysqli_begin_transaction($conn, MYSQLI_TRANS_START_READ_WRITE);
+            mysqli_query($conn,$query);
+		    mysqli_commit($conn);
 
             echo "
                 <p> This video has been flagged </p>";
