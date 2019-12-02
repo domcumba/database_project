@@ -26,28 +26,28 @@
             if (strpos($search, ':views descending') !== false){
                 $subSearch = substr($search, 0, -17);
                 
-                $query = "SELECT * FROM videos WHERE Filename LIKE '%".$subSearch."%' ORDER BY views DESC";
+                $query = "SELECT * FROM videos WHERE FileDescript LIKE '%".$subSearch."%' ORDER BY views DESC";
             }
             elseif (strpos($search, ':views ascending') !== false){
                 $subSearch = substr($search, 0, -16);
                 
-                $query = "SELECT * FROM videos WHERE Filename LIKE '%".$subSearch."%' ORDER BY views ASC";
+                $query = "SELECT * FROM videos WHERE FileDescript LIKE '%".$subSearch."%' ORDER BY views ASC";
             }
             elseif (strpos($search, ':id descending') !== false){
                 $subSearch = substr($search, 0, -14);
 
-                $query = "SELECT * FROM videos WHERE Filename LIKE '%".$subSearch."%' ORDER BY id DESC";
+                $query = "SELECT * FROM videos WHERE FileDescript LIKE '%".$subSearch."%' ORDER BY id DESC";
             }
             elseif (strpos($search, ':id ascending') !== false){
                 $subSearch = substr($search, 0, -13);
 
-                $query = "SELECT * FROM videos WHERE Filename LIKE '%".$subSearch."%' ORDER BY id ASC";
+                $query = "SELECT * FROM videos WHERE FileDescript LIKE '%".$subSearch."%' ORDER BY id ASC";
             }
             elseif (empty($search)){
                 $query = "SELECT * FROM videos";
             }
             else {
-                $query = "SELECT * FROM videos WHERE Filename LIKE '%".$search."%'";
+                $query = "SELECT * FROM videos WHERE FileDescript LIKE '%".$search."%'";
             }
 
             // perform the qeury and display the results
