@@ -5,10 +5,10 @@
 	<main>
 		<?php
 			if (isset($_SESSION['username'])){
-				echo '<p> You are logged in </p>';
+				
 			}
 			else {
-				echo '<p> You are logged out </p>';
+				
 			}
 		?>
 	</main>
@@ -24,8 +24,6 @@
 include 'db_connection.php';
 
 $conn = OpenCon();
-
-echo "Connected Successfully";
 ?>
 
 <!doctype html>
